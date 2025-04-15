@@ -29,7 +29,7 @@ function calculateTotalSales(salesData) {
 
   let revenue = 0;
   
-  for (key in salesData) {
+  for (key in salesData) { // this expression will work, but its better to write "let key" instead of just "key"
   let product = salesData[key];
   revenue += product.price * product.quantitySold;
   }
@@ -50,7 +50,7 @@ console.log(calculateTotalSales(perfumeSale));
 
 function arrayToObject(arr) {
   let result = {};
-  for (i = 0; i < arr.length; i++) {
+  for (i = 0; i < arr.length; i++) { // the same here let i
    result[i] = arr[i];
   }
   return result;
