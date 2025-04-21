@@ -153,7 +153,7 @@ class Employee {
     this._position = value;
   }
   get position() {
-    return this._position;
+    return this._position; // this._position = value;
   }
   //Salary
   set salary(value){
@@ -179,7 +179,9 @@ class Employee {
     if (typeof amount !== 'number') {
       throw new Error('Value for salary raise must be a number');
     }
-    let raisedSalary = this.salary * amount;
+    let raisedSalary = this.salary * amount; // this multiplies the current salary by the amount, instead of adding the raise to the current salary.
+     // the correct code should be 
+     let raisedSalary = this.salary + amount;
     return raisedSalary;
   };
 
@@ -190,7 +192,9 @@ class Employee {
     if (percent < 0) {
       throw new Error('Percent must be greater than 0');
     };
-    let increasedSalary = (this.salary * percent) / 100;
+    let increasedSalary = (this.salary * percent) / 100; // The method calculates the increase but doesn't apply it to the current salary.
+     // correct code should be 
+     this._salary += this._salary * (percent / 100);
     return increasedSalary;
   }
 
